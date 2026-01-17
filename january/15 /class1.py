@@ -19,16 +19,35 @@ class circle(object):
             raise ValueError
         if type(radius)!=int:
             raise ValueError
-        self.cordi=coordinate
+        self.cordi=coordi
         self.r=radius
 
+    def is_inside(self,point):
+        if coordinate.distance(self.cordi,point)<self.r:
+            return True
+        else:
+            return False
+        
+    def is_inside1(self,point):
+        if self.cordi.distance(point)<self.r:
+            return True
+        else:
+            return False
+        
+    def is_inside2(self,point):
+        if point.distance(self.cordi)<self.r:
+            return True
+        else:
+            return False
 
-c=coordinate(3,4)
+
+codi=coordinate(1,1)
 origin=coordinate(0,0)
 
-print(c.distance(origin))
-print(coordinate.distance(c,origin))
+print(codi.distance(origin))
+print(coordinate.distance(codi,origin))
 #c.to_origin()
 #print(c.x,c.y)
 
-c1=circle(c,5)
+cir1=circle(origin,5)
+print(circle.is_inside(cir1,codi))
