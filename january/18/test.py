@@ -1,30 +1,15 @@
-class MyQueue(object):
-    def __init__(self):
-        self.queue=[]
-    
-    def peek(self):
-        if len(self.queue)==0:
-            return None
+def largestRectangle(h):
+    # Write your code here
+    area_list=[]
+    length=len(h)
+    for i in range(length):
+        area=(length-i)*h[i]
+        if len(area_list)==0:
+            area_list.append(area)
+        elif area_list[-1]<area:
+            area_list.append(area)
         else:
-            return self.queue[-1]
+            return area
         
-    def pop(self):
-        if len(self.queue)==0:
-            return None
-        else:
-            return self.queue.pop(0)
-        
-    def put(self, value):
-        self.queue.append(value)
-
-queue = MyQueue()
-t = int(input())
-for line in range(t):
-    values = map(int, input().split())
-    values = list(values)
-    if values[0] == 1:
-        queue.put(values[1])        
-    elif values[0] == 2:
-        queue.pop()
-    else:
-        print(queue.peek())
+h=[1,2,3,4,5]
+print(largestRectangle(h))
