@@ -9,7 +9,7 @@ vector<int> merge(const vector <int>& left, const vector<int>& right){
     result.reserve(left.size()+right.size());
 
     while (i<left.size() && j< right.size()){
-        if (left[i]<right[j]){
+        if (left[i]<=right[j]){
             result.push_back(left[i]);
             i++;
         }
